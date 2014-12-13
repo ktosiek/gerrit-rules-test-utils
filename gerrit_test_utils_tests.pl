@@ -13,6 +13,9 @@ test(multiple_facts) :-
     assertion(Ys == [1, 2]),
     \+ a:a(1), \+ a:a(2).
 
+test(pass_fail_through, [fail]) :-
+    with_facts([b:c(1)], fail).
+
 :- end_tests(with_facts).
 
 :- begin_tests(with_commit).

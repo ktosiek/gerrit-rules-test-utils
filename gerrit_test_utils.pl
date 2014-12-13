@@ -20,10 +20,12 @@ with_facts([Term | Ts], Goal) :-
         retract(Term)
     ).
 
-term_is_undefined(Term) :-
+:- meta_predicate with_facts(0).
+term_is_undefined(Module:Term) :-
     Term =.. [Head | Params],
     length(Params, Arity),
-    (current_predicate(Head/Arity) -> \+ Term).
+    \+ (current_predicate(Module:Head/Arity), Module:Term).
+
 
 :- meta_predicate with_commit(0).
 with_commit(Goal) :- with_commit([], Goal).

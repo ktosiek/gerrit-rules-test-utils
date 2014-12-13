@@ -1,5 +1,7 @@
 % -*- Prolog -*-
 
+:- use_module(library(plunit)).
+
 load_tests :-
     load_files(gerrit_test_utils_tests, []),
 

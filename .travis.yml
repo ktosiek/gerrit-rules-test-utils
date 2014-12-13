@@ -1,0 +1,3 @@
+language: c
+install: sudo apt-get install make swi-prolog
+script: make test

@@ -1,0 +1,23 @@
+[![Build Status](https://travis-ci.org/ktosiek/gerrit-rules-test-utils.svg?branch=master)](https://travis-ci.org/ktosiek/gerrit-rules-test-utils)
+
+Gerrit Test Utils
+=================
+
+Tools for testing your Gerrit submit rules.
+At the moment it only provides one tool: with_commit/2 which let's you create a temporary, Gerrit-like, environment with mocked data.
+
+
+How to use this?
+================
+
+When you write your tests, wrap the test code in with_commit/2, like this:
+
+    test(my_test_name) :-
+        % This will add the label to gerrit:commit_label,
+        % and remove it after the tes
+        with_commit([label('Verified', -1, user(1))],
+            % Just check that the label is really there
+            gerrit:commit_label(label('Verified', -1), user(1))).
+
+
+There are also examples from Gerrit manual with tests for them available in examples/.

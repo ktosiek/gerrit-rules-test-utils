@@ -10,9 +10,9 @@ user:message_hook(T, error, Ls) :-
 
 
 load_tests :-
-    load_files(gerrit_test_utils_tests, []),
+    use_module(gerrit_test_utils_tests),
 
     expand_file_name('examples/*_test.pl', ExampleTests),
-    load_files(ExampleTests, []).
+    use_module(ExampleTests).
 
 main :- (load_tests, run_tests, halt(0)) ; halt(1).

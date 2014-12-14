@@ -1,5 +1,5 @@
 % -*- Prolog -*-
-
+:- module(gerrit_test_utils_tests, []).
 :- use_module(gerrit_test_utils).
 
 :- begin_tests(with_facts).

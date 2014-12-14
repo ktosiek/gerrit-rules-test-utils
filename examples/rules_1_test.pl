@@ -1,4 +1,5 @@
 % -*- Prolog -*-
+:- module(rules_1_test, []).
 :- load_files(rules_1).
 
 :- begin_tests(rules_1).

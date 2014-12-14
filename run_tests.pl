@@ -2,6 +2,13 @@
 
 :- use_module(library(plunit)).
 
+:- multifile(user:message_hook).
+user:message_hook(T, error, Ls) :-
+    writeln('Bailing out because of error!'),
+    display(T), writeln(Ls),
+    halt(128).
+
+
 load_tests :-
     load_files(gerrit_test_utils_tests, []),
 
